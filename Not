@@ -1,0 +1,36 @@
+-- White Screen FPS Booster (KRNL Compatible)
+for i,v in pairs(game:GetDescendants()) do
+    if v:IsA("BasePart") then
+        v.Material = Enum.Material.SmoothPlastic
+        v.Reflectance = 0
+    elseif v:IsA("Decal") then
+        v.Transparency = 1
+    end
+end
+
+-- ปิดเอฟเฟกต์
+for i,v in pairs(game.Lighting:GetChildren()) do
+    if v:IsA("PostEffect") or v:IsA("BloomEffect") or v:IsA("SunRaysEffect") then
+        v.Enabled = false
+    end
+end
+
+-- ตั้งค่าแสงให้เป็นสีขาว
+game.Lighting.Ambient = Color3.new(1,1,1)
+game.Lighting.OutdoorAmbient = Color3.new(1,1,1)
+game.Lighting.Brightness = 1
+game.Lighting.FogEnd = math.huge
+
+-- ปิด Shadows
+game.Lighting.GlobalShadows = false
+
+-- ปิด Terrain Effects
+if game:FindFirstChild("Terrain") then
+    workspace.Terrain.WaterWaveSize = 0
+    workspace.Terrain.WaterWaveSpeed = 0
+    workspace.Terrain.WaterReflectance = 0
+    workspace.Terrain.WaterTransparency = 1
+end
+
+-- ปิด GUI Effects
+game:GetService("UserSettings"):GetService("UserGameSettings").SavedQualityLevel = Enum.SavedQualitySetting.QualityLevel1
