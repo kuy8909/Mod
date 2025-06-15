@@ -1,0 +1,13 @@
+local ESP = loadstring(game: HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+--config
+ESP. Players = true 
+ESP. Boxes = true 
+ESP.Names = true
+ESP: Toggle(true)
+- ESP: AddObjectListener (Workspace.CurrentMap.Loot, {
+Name = "gen_1",
+CustomName = "Chest",
+Color = Color3.fromRGB(0, 89, 1),
+IsEnabled = "whatever"
+})
+ESP.whatever = true
